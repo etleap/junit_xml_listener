@@ -4,39 +4,15 @@ name := "junit_xml_listener"
 
 description := "A simple plugin that outputs JUnit-Style XML Files that contain Test results."
 
-//sbtVersion := "0.11.3"
+sbtVersion := "0.13.1"
 
-//scalaVersion := "2.9.1"
-
-//sbtVersion := "0.12.0"
-
-//scalaVersion := "2.9.2"
-
-//sbtVersion := "0.12.1"
-
-//scalaVersion := "2.9.2"
-
-//sbtVersion := "0.12.2"
-
-//scalaVersion := "2.9.2"
-
-//looks like that after much trial and error this seems to be the right definition for sbt 0.12.x
-
-//sbtVersion := "0.12"
-
-//scalaVersion := "2.9.2"
-
-sbtVersion := "0.13"
-
-scalaVersion := "2.10.2"
-
-
+scalaVersion := "2.10.3"
 
 publishMavenStyle := true
 
-organization := "eu.henkelmann"
+organization := "com.alpinenow"
 
-version := "0.4.1-SNAPSHOT"
+version := "0.4.2-SNAPSHOT"
 
 scalacOptions := Seq("-deprecation", "-unchecked")
 
@@ -53,7 +29,7 @@ publishArtifact in Test := false
 pomIncludeRepository := { _ => false }
 
 pomExtra := (
-  <url>https://github.com/chenkelmann/junit_xml_listener</url>
+  <url>https://github.com/AlpineNow/junit_xml_listener</url>
   <licenses>
     <license>
       <name>MIT</name>
@@ -62,10 +38,15 @@ pomExtra := (
     </license>
   </licenses>
   <scm>
-    <url>https://github.com/chenkelmann/junit_xml_listener.git</url>
-    <connection>scm:git:git://github.com/chenkelmann/junit_xml_listener.git</connection>
+    <url>https://github.com/AlpineNow/junit_xml_listener.git</url>
+    <connection>scm:git:git://github.com/AlpineNow/junit_xml_listener.git</connection>
   </scm>
   <developers>
+  <developer>
+    <id>dbtsai</id>
+    <name>DB Tsai</name>
+    <url>http://www.dbtsai.com/</url>
+  </developer>
   <developer>
     <id>chenkelmann</id>
     <name>Christoph Henkelmann</name>
