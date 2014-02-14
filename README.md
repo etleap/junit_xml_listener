@@ -1,3 +1,6 @@
+[![Build Status](https://api.travis-ci.org/AlpineNow/junit_xml_listener.png?branch=master)](https://travis-ci.org/AlpineNow/junit_xml_listener)
+
+
 About
 -----
 The Junit XML Listener is a simple sbt test listener plugin that collects the results of test runs and writes them to an xml file formatted like the output of a JUnit run.
