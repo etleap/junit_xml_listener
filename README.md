@@ -28,6 +28,12 @@ This will add the dependency to the plugin. The next step is to configure your b
 
 Note that the line as shown is enough in a *.sbt file. In *.scala files (full configuration), you must collect the result of the expression into the settings of all projects that should produce the XML output.
 
+Examples
+--------
+For a basic project template using sbt, see the [simple-example](https://github.com/AlpineNow/junit_xml_listener/tree/master/src/sbt-test/simple-example) project.
+
+For using full configuration example with `Build.scala`, see the [full-example](https://github.com/AlpineNow/junit_xml_listener/tree/master/src/sbt-test/full-example) project.
+
 Version History
 ---------------
 
