@@ -16,11 +16,7 @@ Installation
 
 Add the following lines to either ~/.sbt/plugins/build.sbt (user-specific) or project/plugins/build.sbt (project-specific):
 
-	//You need to add the resolver as long as the plugin is only published to the snapshots repo. 
-	//As soon as it is in central, you can remove this additional resolver.
-    resolvers += "Scala Snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/"
-
-    addSbtPlugin("com.alpinenow" % "junit_xml_listener" % "0.4.2-SNAPSHOT")
+    addSbtPlugin("com.alpinenow" % "junit_xml_listener" % "0.5.0")
 
 This will add the dependency to the plugin. The next step is to configure your build to output the XML. The following will output the XML in target/test-reports:
 
@@ -37,7 +33,7 @@ For using full configuration example with `Build.scala`, see the [full-example](
 Version History
 ---------------
 
-* 0.4.2-SNAPSHOT Supported sbt 0.13.1, and fixed the issue of that the time duration is always set to 0s. 
+* 0.5 Supported sbt 0.13.1, and fixed the issue of that the time duration is always set to 0s. 
 * 0.4 First version published to maven central (snapshots)
 * 0.3 Merge of Ismael Juma's adjustments for sbt 0.10+
 * 0.2 Added handling of skipped tests (thanks to Johannes Rudolph)
