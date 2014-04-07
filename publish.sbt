@@ -25,6 +25,11 @@ pomExtra := (
   </scm>
   <developers>
   <developer>
+      <id>chesterxgchen</id>
+      <name>Chester Chen</name>
+      <url>https://github.com/chesterxgchen</url>
+    </developer>
+  <developer>
     <id>dbtsai</id>
     <name>DB Tsai</name>
     <url>http://www.dbtsai.com/</url>
