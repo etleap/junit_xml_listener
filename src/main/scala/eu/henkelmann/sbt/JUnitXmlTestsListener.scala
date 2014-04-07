@@ -70,7 +70,7 @@ class JUnitXmlTestsListener(val outputDir: String) extends TestsListener {
      * All tests collected so far.
      */
     def stop(): Elem = {
-      val duration = events.foldLeft(0L)((acc, e) => if (e.duration() == -1) acc else acc + e.duration())
+      val duration = events.foldLeft(0L)((acc, e) => if (e.duration() < 0 ) acc else acc + e.duration())
       val (errors, failures, tests) = count()
 
       val result = <testsuite hostname={ hostname } name={ name } tests={ tests + "" } errors={ errors + "" } failures={ failures + "" } time={ (duration / 1000.0).toString }>
@@ -85,7 +85,7 @@ class JUnitXmlTestsListener(val outputDir: String) extends TestsListener {
                            case _ => e.selector().toString
                          }
 
-                         <testcase classname={ className } name={ name } time={ if (e.duration() == -1) "0.0" else (e.duration() / 1000.0).toString }>
+                         <testcase classname={ className } name={ name } time={ if (e.duration() < 0) "0.0" else (e.duration() / 1000.0).toString }>
                            {
                              val trace: String = if (e.status() == TStatus.Error && e.throwable().isDefined) {
                                val stringWriter = new StringWriter()
