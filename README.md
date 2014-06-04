@@ -33,6 +33,10 @@ For using full configuration example with `Build.scala`, see the [full-example](
 Version History
 ---------------
 
+* 0.5.1 bug fix
+    ** fix the class name to be fully qualified classpath
+    ** make sure the the reporting time is in second not in miliseond, which causing JUnit HTML to report incorrect number
+    ** make sure the duration of the tests are accumulative.
 * 0.5 Supported sbt 0.13.1, and fixed the issue of that the time duration is always set to 0s. 
 * 0.4 First version published to maven central (snapshots)
 * 0.3 Merge of Ismael Juma's adjustments for sbt 0.10+
