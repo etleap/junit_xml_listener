@@ -9,7 +9,7 @@ import sbt.testing.{ Event => TEvent, Status => TStatus, Logger => TLogger, Nest
 /*
 The api for the test interface defining the results and events
 can be found here: 
-https://github.com/harrah/test-interface
+https://github.com/sbt/test-interface
 */
 
 /**
