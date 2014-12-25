@@ -1,4 +1,4 @@
-package eu.henkelmann.sbt
+package repackaged.eu.henkelmann.sbt
 
 import _root_.sbt._
 import java.io.{ StringWriter, PrintWriter, File }
@@ -70,7 +70,7 @@ class JUnitXmlTestsListener(val outputDir: String) extends TestsListener {
      * All tests collected so far.
      */
     def stop(): Elem = {
-      val duration = events.foldLeft(0L)((acc, e) => if (e.duration() < 0 ) acc else acc + e.duration())
+      val duration = events.foldLeft(0L)((acc, e) => if (e.duration() < 0) acc else acc + e.duration())
       val (errors, failures, tests) = count()
 
       val result = <testsuite hostname={ hostname } name={ name } tests={ tests + "" } errors={ errors + "" } failures={ failures + "" } time={ (duration / 1000.0).toString }>
