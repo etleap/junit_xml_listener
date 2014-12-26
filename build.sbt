@@ -8,7 +8,7 @@ organization := "repackaged.com.alpinenow"
 
 description := "A simple plugin that outputs JUnit-Style XML Files that contain Test results."
 
-version := "0.5.1"
+version := "0.5.1.1-etleap"
 
 scalaVersion := "2.10.3"
 

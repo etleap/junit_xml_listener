@@ -21,7 +21,7 @@ class JUnitXmlTestsListener(val outputDir: String) extends TestsListener {
   /**Current hostname so we know which machine executed the tests*/
   val hostname = InetAddress.getLocalHost.getHostName
   /**The dir in which we put all result files. Is equal to the given dir + "/test-reports"*/
-  val targetDir = new File(outputDir + "/test-reports/")
+  val targetDir = new File(outputDir + "/test-reports-with-timing/")
 
   /**all system properties as XML*/
   val properties =
