@@ -38,6 +38,26 @@ class JUnitXmlTestsListener(val outputDir: String) extends TestsListener {
     </properties>
 
   /**
+   * Extract the test name from the TestEvent.
+   *
+   * I think there should be a nicer way to do this, but it doesn't look like SBT is going to give us that.
+   */
+  def testNameFromTestEvent(name: String, event: TEvent) = {
+    def dropPrefix(s: String, prefix: String) = if (s.startsWith(prefix)) {
+      s.drop(prefix.length)
+    } else {
+      s
+    }
+
+    event.selector() match {
+      case test: TestSelector => dropPrefix(test.testName(), name + ".")
+      // I don't know if the events below are possible with JUnit, nor do I know exactly what to do with them.
+      case test: NestedTestSelector => dropPrefix(test.testName(), name + ".")
+      case _ => event.fullyQualifiedName()
+    }
+  }
+
+  /**
    * Gathers data for one Test Suite. We map test groups to TestSuites.
    * Each TestSuite gets its own output file.
    */
@@ -77,15 +97,7 @@ class JUnitXmlTestsListener(val outputDir: String) extends TestsListener {
                      { properties }
                      {
                        for (e <- events) yield {
-
-                         val className = e.fullyQualifiedName()
-                         val name = e.selector match {
-                           case t: TestSelector => t.testName()
-                           case n: NestedTestSelector => n.testName()
-                           case _ => e.selector().toString
-                         }
-
-                         <testcase classname={ className } name={ name } time={ if (e.duration() < 0) "0.0" else (e.duration() / 1000.0).toString }>
+                         <testcase classname={ name } name={ testNameFromTestEvent(name, e) } time={ if (e.duration() < 0) "0.0" else (e.duration() / 1000.0).toString }>
                            {
                              val trace: String = if (e.status() == TStatus.Error && e.throwable().isDefined) {
                                val stringWriter = new StringWriter()
