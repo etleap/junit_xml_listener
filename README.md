@@ -1,6 +1,3 @@
-[![Build Status](https://api.travis-ci.org/AlpineNow/junit_xml_listener.png?branch=master)](https://travis-ci.org/AlpineNow/junit_xml_listener)
-
-
 About
 -----
 The Junit XML Listener is a simple sbt test listener plugin that collects the results of test runs and writes them to an xml file formatted like the output of a JUnit run.
@@ -9,14 +6,24 @@ This allows the test results to be displayed in any tool that can display JUnit 
 Requirements
 ------------
 
-* sbt 0.13.1
+* sbt 1.0.4
+
+How to publish a new version
+------------
+
+See: https://github.com/etleap/etleap/wiki/Maven-Repository
+
+```
+sbt compile publish
+aws s3 sync ~/.m2/repository/repackaged/com/alpinenow/junit_xml_listener_2.12_1.0/1.0.0-etleap/ s3://etleap-repository/repackaged/com/alpinenow/junit_xml_listener_2.12_1.0/1.0.0-etleap/
+```
 
 Installation
 ------------
 
 Add the following lines to either ~/.sbt/plugins/build.sbt (user-specific) or project/plugins/build.sbt (project-specific):
 
-    addSbtPlugin("com.alpinenow" % "junit_xml_listener" % "0.5.1")
+    addSbtPlugin("com.alpinenow" % "junit_xml_listener" % "0.6.0")
 
 This will add the dependency to the plugin. The next step is to configure your build to output the XML. The following will output the XML in target/test-reports:
 
@@ -33,6 +40,8 @@ For using full configuration example with `Build.scala`, see the [full-example](
 Version History
 ---------------
 
+* 0.6.0 sbt 1.x
+    ** compile with sbt 1.0.4
 * 0.5.1 bug fix
     ** fix the class name to be fully qualified classpath
     ** make sure the the reporting time is in second not in miliseond, which causing JUnit HTML to report incorrect number
