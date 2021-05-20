@@ -23,7 +23,14 @@ Installation
 
 Add the following lines to either ~/.sbt/plugins/build.sbt (user-specific) or project/plugins/build.sbt (project-specific):
 
-    addSbtPlugin("com.alpinenow" % "junit_xml_listener" % "0.6.0")
+```
+// The Etleap repository
+resolvers += "AWS Etleap Repository" at "http://etleap-repository.s3.amazonaws.com"
+resolvers += Resolver.url("AWS Etleap Repository (Ivy)", url("http://etleap-repository.s3.amazonaws.com/ivy/"))(Resolver.ivyStylePatterns)
+
+// Unit tests with timing per testcase
+addSbtPlugin("repackaged.com.alpinenow" % "junit_xml_listener" % "1.0.0-etleap")
+```
 
 This will add the dependency to the plugin. The next step is to configure your build to output the XML. The following will output the XML in target/test-reports:
 
