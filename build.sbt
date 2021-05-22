@@ -1,4 +1,4 @@
-scalariformSettings
+//scalariformSettings
 
 sbtPlugin := true
 
@@ -8,8 +8,8 @@ organization := "repackaged.com.alpinenow"
 
 description := "A simple plugin that outputs JUnit-Style XML Files that contain Test results."
 
-version := "0.5.1.5-etleap"
+version := "1.0.0-etleap"
 
-scalaVersion := "2.10.3"
+scalaVersion := "2.12.13"
 
 scalacOptions += "-deprecation"

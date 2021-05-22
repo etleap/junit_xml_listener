@@ -178,12 +178,12 @@ class JUnitXmlTestsListener(val outputDir: String) extends TestsListener {
    * Ends the current suite, wraps up the result and writes it to an XML file
    *  in the output folder that is named after the suite.
    */
-  override def endGroup(name: String, result: TestResult.Value) = {
+  override def endGroup(name: String, result: TestResult) = {
     XML.save(new File(targetDir, testSuite.name + ".xml").getAbsolutePath, testSuite.stop(), "UTF-8", true, null)
   }
 
   /**Does nothing, as we write each file after a suite is done.*/
-  override def doComplete(finalResult: TestResult.Value): Unit = {}
+  override def doComplete(finalResult: TestResult): Unit = {}
 
   /**Returns None*/
   override def contentLogger(test: TestDefinition): Option[ContentLogger] = None
